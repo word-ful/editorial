@@ -1,0 +1,16 @@
+{
+  "version": "1",
+  "name": "editorial",
+  "description": "Open-source editorial skills for AI content creation, by Wordful.",
+  "plugins": [
+    {
+      "name": "dissolve-ai",
+      "version": "0.3.0",
+      "description": "Strip AI writing patterns from a prose draft. Manual-invocation skill — runs only when the user types /dissolve-ai or asks by name. Strips patterns catalogued across 21 rule categories: inflated significance, promotional framing, hollow connector phrases, emotional projection, formulaic three-item lists, structural repetition, em-dash overuse, superfluous jargon, and related tells. Inserts [NEEDS SPECIFIC: ...] placeholders inline where a passage cannot be safely cut without inventing facts. Add --report flag for a compact diagnostic block alongside the stripped draft.",
+      "source": {
+        "type": "local",
+        "path": "dissolve-ai"
+      }
+    }
+  ]
+}

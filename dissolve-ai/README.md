@@ -20,7 +20,7 @@ The reference ruleset catalogs patterns across categories including:
 - **Superfluous jargon** — "operationalize," "surface area," "granularity" used as default rather than as deliberate choice
 - **Structural symmetry** — every paragraph built to the same shape
 
-See [`reference/patterns.md`](./reference/patterns.md) for the full ruleset.
+See [`reference/patterns.md`](./reference/patterns.md) for the full ruleset (21 rule categories).
 
 ## Example
 
@@ -34,23 +34,31 @@ After Dissolve AI:
 
 That's the whole output. No findings, no grade, no advice. The sparse result is the point — when the original is largely filler, the stripped draft exposes it. The placeholders tell the writer exactly where the substance is missing.
 
-See [`examples/`](./examples) for the full before/after.
+See [`examples/`](./examples) for a real LinkedIn post before-and-after.
 
 ## Install
 
-```bash
-# Clone the parent repo
-git clone https://github.com/word-ful/editorial.git ~/wordful-editorial
+### Recommended: plugin install (one command, no terminal)
 
-# Symlink this skill into your Claude Code skills directory
+Inside Claude Code, run:
+
+```
+/plugin marketplace add word-ful/editorial
+/plugin install dissolve-ai@editorial
+```
+
+That's it. Auto-updates when new versions ship. No `git`, no symlinks, no restart.
+
+### Alternative: manual install
+
+If you'd rather clone the repo and symlink:
+
+```bash
+git clone https://github.com/word-ful/editorial.git ~/wordful-editorial
 ln -s ~/wordful-editorial/dissolve-ai ~/.claude/skills/dissolve-ai
 ```
 
-Or copy the folder directly:
-
-```bash
-cp -r ~/wordful-editorial/dissolve-ai ~/.claude/skills/
-```
+Then restart Claude Code.
 
 ## Usage
 
@@ -85,8 +93,7 @@ Or ask in plain language, naming the skill:
 
 ## Roadmap
 
-- **v0.3** — Bring-your-own-sample mode (`--sample <paragraph>`) for voice-aware collapses
-- **v0.4** — Plugin marketplace install path
+- **v0.4** — Bring-your-own-sample mode (`--sample <paragraph>`) for voice-aware collapses
 - **Later** — Per-rule severity tuning, custom ruleset extensions
 
 ## License

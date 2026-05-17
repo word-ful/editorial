@@ -6,6 +6,23 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-05-17
+
+### Added
+- **Plugin marketplace install path.** The repo now ships a `.claude-plugin/marketplace.json` manifest so users can install Dissolve AI with two slash commands inside Claude Code — no terminal, no `git`, no symlinks, no restart. Auto-updates apply when new versions ship.
+
+  ```
+  /plugin marketplace add word-ful/editorial
+  /plugin install dissolve-ai@editorial
+  ```
+
+  Manual install (clone + symlink) remains available for users who prefer it.
+
+### Changed
+- **dissolve-ai SKILL.md** — added `disable-model-invocation: true` to the frontmatter. The skill no longer registers for auto-trigger consideration; it only runs when the user explicitly invokes it via `/dissolve-ai` or names it in a request. This was the original design intent in v0.2; the explicit flag makes it enforced rather than description-dependent.
+- Both READMEs lead with the plugin install path. Manual install moved to "Alternative."
+- Roadmap updated: v0.3 (marketplace install) is now done; v0.4 is bring-your-own-sample mode.
+
 ## [0.2.2] — 2026-05-11
 
 ### Changed

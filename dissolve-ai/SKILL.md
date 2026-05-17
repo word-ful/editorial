@@ -1,6 +1,7 @@
 ---
 name: dissolve-ai
 description: Manual-invocation skill for stripping AI writing patterns from prose drafts. Invoke ONLY when the user explicitly runs /dissolve-ai or asks by name — e.g. "run Dissolve AI on this", "strip AI patterns with Dissolve AI", "dissolve this draft". Returns a cleaned draft with formulaic AI tells removed — inflated significance, promotional framing, hollow connector phrases, emotional projection, three-item lists, structural repetition, and related patterns. Where a passage cannot be safely cut without inventing facts the skill does not have, leaves an inline [NEEDS SPECIFIC: ...] placeholder for the user to fill in. Default output is the stripped draft only — no commentary, no findings, no summary. Use the --report flag (or ask "with report") for an optional diagnostic block. Do NOT auto-trigger on general writing tasks, blog drafts, code review, or unrelated content. This skill activates only on explicit invocation.
+disable-model-invocation: true
 ---
 
 # Dissolve AI
