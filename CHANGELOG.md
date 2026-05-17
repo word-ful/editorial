@@ -6,6 +6,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.2.2] — 2026-05-11
+
+### Changed
+- Dropped "Claude Code" from top-line positioning in both READMEs. The skill is described as "a skill" rather than "a Claude Code skill" to keep brand framing platform-agnostic. Technical install/usage instructions still reference Claude Code where accurate.
+- Added a bullet to the "What this skill does NOT do" section in both SKILL.md and dissolve-ai/README.md: *It does not rewrite your text to sound "correct."* Clarifies that Dissolve AI removes patterns; it does not impose a house style or "fix" prose toward any standard of correctness.
+
 ## [0.2.1] — 2026-05-11
 
 ### Changed

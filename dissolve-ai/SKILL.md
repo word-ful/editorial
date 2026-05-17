@@ -127,6 +127,7 @@ Placeholders are honest about what the skill cannot do without guidance. They ar
 
 - It does not generate voice the original did not have.
 - It does not introduce facts, numbers, names, or claims the original did not include.
+- It does not rewrite your text to sound "correct."
 - It does not score writing quality. A stripped draft is not necessarily a good draft — it is a draft without the AI tells.
 - It does not check facts, citations, audience fit, or brand voice.
 - It does not reorder paragraphs or restructure arguments.

@@ -2,7 +2,7 @@
 
 Open-source editorial skills for AI content creation, by Wordful.
 
-This is a collection of [Claude Code](https://docs.anthropic.com/claude-code) skills designed to help writers, marketers, and content teams ship work that holds up — without the formulaic patterns that mark a draft as machine-generated.
+This is a collection of skills designed to help writers, marketers, and content teams ship work that holds up — without the formulaic patterns that mark a draft as machine-generated.
 
 ## Skills
 

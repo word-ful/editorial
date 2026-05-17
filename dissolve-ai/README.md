@@ -1,6 +1,6 @@
 # Dissolve AI
 
-A [Claude Code](https://docs.anthropic.com/claude-code) skill that strips AI writing patterns from a prose draft and gives the cleaned draft back to you.
+A skill that strips AI writing patterns from a prose draft and gives the cleaned draft back to you.
 
 No grading. No commentary. No report card. You paste a draft. You get back a draft with the AI tells removed.
 
@@ -78,6 +78,7 @@ Or ask in plain language, naming the skill:
 
 - It does not generate voice the original did not have.
 - It does not introduce facts, numbers, or claims the original did not include.
+- It does not rewrite your text to sound "correct."
 - It does not score writing quality. A stripped draft is not necessarily a good draft.
 - It does not check facts, citations, or audience fit.
 - It does not replace a human editor.
