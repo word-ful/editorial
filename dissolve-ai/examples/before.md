@@ -1,13 +1,33 @@
-# The Rise of AI in Modern Marketing: A Pivotal Moment
+I almost ignored the connection request.
 
-In today's rapidly evolving digital landscape, artificial intelligence stands as a transformative force reshaping how brands connect with audiences. From content creation to customer engagement, AI has emerged as a pivotal tool — one that marketers can no longer afford to ignore.
+No mutuals. Default template. My finger was on Ignore — muscle memory after forty of these a week.
 
-It's worth noting that this isn't just a passing trend. AI represents a fundamental shift in how we approach marketing, underscoring the importance of staying ahead of the curve. As organizations increasingly embrace this technology, those who fail to adapt risk being left behind.
+But this one had a note. Three sentences. Referenced a piece I'd written about scope creep. Quoted the one line I'd agonized over. No ask. No calendar link. No "quick 15 minutes to explore synergies."
 
-The benefits are clear: enhanced efficiency, personalized experiences, and data-driven insights. By leveraging AI tools, marketing teams can unlock new levels of productivity and creativity. The transformation is already underway, and its impact will continue to shape the industry for years to come.
+I accepted. Six months later, that connection sent a referral that turned into real work.
 
-You'll be amazed by what's possible. From automated content generation to predictive analytics, AI is opening doors that were once unimaginable. In conclusion, the future of marketing isn't just bright — it's intelligent.
+That interaction is now the exception. And the reason is bleaker than the usual hand-wringing about etiquette:
 
----
+LinkedIn isn't a network. It's a CRM. And we've all been pretending otherwise.
 
-*This is a synthesized example representative of common AI-flavored marketing prose, used to demonstrate the Dissolve AI review output.*
+Look at the market. LeadDelta. Folk. Breakcold. Octopus. An entire venture-backed category built on the thesis that LinkedIn is, functionally, a sales database. The picks-and-shovels economy doesn't lie.
+
+The pitch slap isn't bad manners. It's the system working as designed.
+
+"Just personalize more" doesn't fix this. Etiquette advice doesn't scale against incentive design.
+
+So if it's a CRM, treat it like one — with the discipline a real salesperson would bring. Three things separate the connection I almost ignored from the forty I delete every week:
+
+→ Specificity. Reference a real artifact. "I love your content" doesn't count.
+→ Asymmetry of effort. Give more than you ask. The close is the last step, not the first.
+→ Honesty. A clear pitch beats a fake friendship. The dishonesty is what makes the inbox feel cursed. Not the asking.
+
+The bar is so low you can step over it. Most of your competition is paying for software that generates the opposite behavior at scale — which means writing a real sentence to a real person is now genuinely differentiating.
+
+The platform won't reward you for it. The algorithm won't surface it. There's no badge for not being a parasite.
+
+But the connections that turn into something real — the work, the referrals, the late-night calls about a fundraise — those don't come from the CRM. They come from the people who saw it, refused to play it, and reached out anyway like the rest of the internet wasn't broken.
+
+Be that person. Or when you find one, hit accept.
+
+What made the last great connection request you accepted actually land?

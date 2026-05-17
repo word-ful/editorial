@@ -6,6 +6,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [0.2.1] — 2026-05-11
+
+### Changed
+- **dissolve-ai SKILL.md** — clarified that "faithful to the original" means faithful to the *argument*, not the *structure*. The skill is free to restructure sentences, integrate fragments, and dissolve formulaic patterns. The previous wording created a loophole that allowed protecting platform-native cadences (e.g. LinkedIn-style staccato fragments and two-sentence quips) as "structure."
+- **dissolve-ai examples** — replaced the synthesized marketing-paragraph example with a real LinkedIn post strip. The new example demonstrates pattern dissolution on competently written but heavily patterned prose, where the issue is cadence rather than empty filler.
+
 ## [0.2.0] — 2026-05-11
 
 ### Changed

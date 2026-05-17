@@ -45,7 +45,7 @@ Produce the stripped draft. The stripped draft is:
 
 - Plain prose, no inline annotations, no strike-through, no markers — except `[NEEDS SPECIFIC: ...]` placeholders where the skill could not safely cut.
 - Paste-able as-is into any destination (CMS, doc, email).
-- Faithful to the original's structure and intent. Do not reorder paragraphs. Do not introduce new ideas. Do not insert voice the original did not have.
+- Faithful to the original's argument and intent. Do not reorder paragraphs. Do not introduce new ideas. Do not insert voice the original did not have. Note: argument is not the same as structure — the skill is free to restructure sentences, integrate fragments into flowing prose, and dissolve formulaic patterns like staccato rhythm, two-sentence quips, and bullet-list scaffolds. The constraint is on inventing content, not on preserving form.
 
 ### Step 4: Output
 
