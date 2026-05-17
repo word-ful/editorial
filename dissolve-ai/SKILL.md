@@ -1,20 +1,21 @@
 ---
 name: dissolve-ai
-description: Manual-invocation skill for reviewing prose drafts against a catalogued ruleset of AI writing patterns. Invoke ONLY when the user explicitly runs /dissolve-ai or asks by name — e.g. "run Dissolve AI on this", "check this with Dissolve AI", "review this for AI patterns using Dissolve AI". Scans the draft against rules covering inflated significance, promotional framing, emotional projection, hollow connector phrases, em-dash overuse, formulaic three-item lists, structural repetition, and related tells. Returns a structured findings report with quoted passages, rule references, severity, and clustering signals. Operates in Review mode only — flags issues, does not rewrite. Do NOT auto-trigger on general writing tasks, blog drafts, code review, or unrelated content. This skill activates only on explicit invocation.
+description: Manual-invocation skill for stripping AI writing patterns from prose drafts. Invoke ONLY when the user explicitly runs /dissolve-ai or asks by name — e.g. "run Dissolve AI on this", "strip AI patterns with Dissolve AI", "dissolve this draft". Returns a cleaned draft with formulaic AI tells removed — inflated significance, promotional framing, hollow connector phrases, emotional projection, three-item lists, structural repetition, and related patterns. Where a passage cannot be safely cut without inventing facts the skill does not have, leaves an inline [NEEDS SPECIFIC: ...] placeholder for the user to fill in. Default output is the stripped draft only — no commentary, no findings, no summary. Use the --report flag (or ask "with report") for an optional diagnostic block. Do NOT auto-trigger on general writing tasks, blog drafts, code review, or unrelated content. This skill activates only on explicit invocation.
 ---
 
 # Dissolve AI
 
-A review-mode skill that scans prose drafts for the writing patterns that mark content as machine-generated.
+Strip AI writing patterns from a prose draft. Return the cleaned draft.
 
 ## When to invoke
 
 Only when the user explicitly asks for this skill by name. Triggers include:
 
 - `/dissolve-ai`
+- `/dissolve-ai --report`
 - "run Dissolve AI on this"
-- "check this with Dissolve AI"
-- "review this draft for AI patterns" (when the user has named this skill in context)
+- "strip this with Dissolve AI"
+- "dissolve this draft"
 
 Do NOT invoke on generic writing-help requests, editing requests, or code review. If the user is asking for general writing feedback without naming this skill, do not run it.
 
@@ -28,85 +29,110 @@ If it cannot be loaded, stop and output:
 
 > **Dissolve AI: `reference/patterns.md` not found — cannot proceed.** Locate the file and retry.
 
-### Step 2: Scan the draft
+### Step 2: Plan cuts
 
-Pass through every paragraph of the draft. For each rule in the loaded ruleset, check whether the draft contains the pattern.
+Pass through every paragraph of the draft. For each rule in the loaded ruleset, identify passages that fire.
 
-For each hit, record:
+For each firing passage, decide one of three actions:
 
-- The quoted passage (exact text from the draft)
-- The rule name
-- A one-line explanation of why this pattern fires here
-- Severity (Low / Medium / High — see below)
+- **Delete** — the passage is pure filler. The surrounding text reads fine without it. Hollow connectors, empty intensifiers, and stock urgency phrases are usually deletes.
+- **Collapse** — the passage is load-bearing but bloated. Rewrite the sentence to keep its function while removing the AI pattern. Use only words and concepts already present in the draft. Do not introduce new claims, facts, or framing.
+- **Placeholder** — the passage cannot be cut without breaking the sentence, and the skill does not have the specific fact needed to replace it cleanly. Insert an inline `[NEEDS SPECIFIC: <what's missing>]` marker.
 
-**Severity guide:**
+### Step 3: Apply cuts
 
-- **Low** — a single instance of a low-risk pattern in an otherwise clean draft
-- **Medium** — a clear instance of a pattern, or a low-risk pattern repeated
-- **High** — a strong instance of a high-risk pattern (inflated significance, hollow connector, emotional projection in opening or closing position), or a pattern that clusters with others
+Produce the stripped draft. The stripped draft is:
 
-### Step 3: Apply flagging rules
+- Plain prose, no inline annotations, no strike-through, no markers — except `[NEEDS SPECIFIC: ...]` placeholders where the skill could not safely cut.
+- Paste-able as-is into any destination (CMS, doc, email).
+- Faithful to the original's structure and intent. Do not reorder paragraphs. Do not introduce new ideas. Do not insert voice the original did not have.
 
-- Flag **clustering**: multiple flagged patterns in the same paragraph signal a structural problem, not a word-choice problem.
-- Flag **frequency**: the same pattern repeating across multiple sections signals formulaic construction.
-- Flag **structural repetition**: identical sentence architecture repeated across sections, regardless of vocabulary.
-- Do not flag isolated instances of low-risk patterns unless they compound with others. An occasional em-dash is fine; em-dashes as the dominant rhythm device is not.
+### Step 4: Output
 
-### Step 4: Produce the report
-
-Output a Markdown report using the format below. Do not paraphrase the draft. Quote the actual passages.
-
-## Output format
+**Default output:** the stripped draft. Nothing else.
 
 ```
-# Dissolve AI Review
-
-**Verdict:** [Clean / Minor flags / Major flags / Heavy AI patterning]
-**Flags found:** N
-**Overall severity:** [Low / Medium / High]
-
-## Summary
-
-[1–2 sentences describing the overall pattern of issues, or noting that the draft reads cleanly. If patterns cluster in specific sections, name those sections.]
-
-## Findings
-
-### 1. [Rule name]
-
-> [Quoted passage from the draft, exact wording]
-
-**Why this fires:** [One-line explanation, specific to this passage.]
-**Severity:** [Low / Medium / High]
-
-### 2. [Rule name]
-
-> [Quoted passage]
-
-**Why this fires:** [...]
-**Severity:** [...]
-
-[...continue for each finding...]
-
-## Pattern clustering
-
-[If clustering detected: identify which paragraphs and which patterns. Otherwise: "None detected."]
-
-## Structural repetition
-
-[If detected: describe the repeated structure with examples. Otherwise: "None detected."]
-
-## Recommended priorities
-
-[Top 3 issues to address first, in order. Skip this section if Verdict is "Clean".]
+[stripped draft, copy-pasteable, with [NEEDS SPECIFIC: ...] placeholders inline where applicable]
 ```
+
+No preamble. No "here is your stripped draft." No summary. Just the draft.
+
+**With `--report` flag (or if user explicitly asks for a report):** stripped draft, then a horizontal rule, then a compact diagnostic block.
+
+```
+[stripped draft]
+
+---
+
+## Dissolve AI report
+
+**Cuts:** N
+**Words removed:** M of total (X%)
+**Top patterns:** [pattern name] (count), [pattern name] (count), [pattern name] (count)
+**Placeholders inserted:** P
+
+### Cuts
+
+| # | Paragraph | Original | Action | Rule |
+|---|-----------|----------|--------|------|
+| 1 | 1 | "It's worth noting that..." | Deleted | Hollow connector |
+| 2 | 1 | "...stands as a transformative force..." | Collapsed | Inflated significance |
+| 3 | 3 | "enhanced efficiency, personalized experiences, and data-driven insights" | Placeholder | Formulaic three-item list |
+
+[...one row per cut...]
+```
+
+Keep the report compact. It is a reference for power users — not a graded report card.
+
+## The three action types in detail
+
+### Delete
+
+Use when removing the passage causes no structural damage. The next sentence still reads cleanly.
+
+Examples of typical deletes:
+- "It's worth noting that"
+- "In today's rapidly evolving digital landscape"
+- "In conclusion,"
+- "You'll be amazed by what's possible."
+- "The transformation is already underway."
+
+### Collapse
+
+Use when the sentence is structurally necessary but bloated. Rewrite to keep its function with fewer words and no AI patterns. Constraints:
+
+- Use only words and concepts already in the draft.
+- Do not introduce new facts, numbers, names, or framings.
+- If a clean collapse requires information not in the draft, use a Placeholder instead.
+
+Example:
+- Original: "AI has emerged as a pivotal tool — one that marketers can no longer afford to ignore."
+- Collapsed: "Marketers are using AI." (If the surrounding text doesn't already say this, even the collapse may not be safe — consider Delete or Placeholder.)
+
+### Placeholder
+
+Use when the passage is load-bearing AND the skill cannot replace it without inventing a fact. The placeholder format is:
+
+```
+[NEEDS SPECIFIC: <one short phrase describing what's missing>]
+```
+
+Examples:
+- "Vanguard cut its marketing ops team by [NEEDS SPECIFIC: percentage] after [NEEDS SPECIFIC: which AI deployment]."
+- "The benefits are [NEEDS SPECIFIC: name one concrete outcome with a number]."
+
+Placeholders are honest about what the skill cannot do without guidance. They are greppable and obvious. The user cannot ship the draft without resolving them, which is the point.
 
 ## What this skill does NOT do
 
-- It does not rewrite the draft. Review mode only in v1.
-- It does not score overall writing quality. A draft can pass every check and still be poorly argued.
-- It does not check facts, citations, or claims.
-- It does not check tone, brand voice, or audience fit.
+- It does not generate voice the original did not have.
+- It does not introduce facts, numbers, names, or claims the original did not include.
+- It does not score writing quality. A stripped draft is not necessarily a good draft — it is a draft without the AI tells.
+- It does not check facts, citations, audience fit, or brand voice.
+- It does not reorder paragraphs or restructure arguments.
 
 ## Limits to acknowledge
 
-This is a pattern-detection tool. Patterns are diagnostic signals, not verdicts. A draft can fire several flags and still be the right piece — context matters, and a human editor still owns the final call. Present the report as input to a decision, not as the decision itself.
+The skill removes patterns. It cannot supply substance. If the original draft is entirely filler, the stripped draft will be sparse — often a series of `[NEEDS SPECIFIC: ...]` placeholders. That is the correct output. It exposes how much of the original was carrying no information. Present it without apology.
+
+Human editorial judgment still owns the final call. The skill produces input to a decision; it does not make the decision.

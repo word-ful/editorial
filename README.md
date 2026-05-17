@@ -8,7 +8,7 @@ This is a collection of [Claude Code](https://docs.anthropic.com/claude-code) sk
 
 ### [dissolve-ai](./dissolve-ai)
 
-Review a prose draft for AI writing patterns. Returns a structured report: flagged passages, rule references, severity, and clustering signals. Review-only in v1 — flags issues, does not rewrite.
+Strip AI writing patterns from a prose draft. Returns the cleaned draft — no commentary, no findings, no grade. Where a passage cannot be safely cut, leaves a `[NEEDS SPECIFIC: ...]` placeholder for the human writer to fill in. Add `--report` for an optional diagnostic block.
 
 *More skills coming.*
 
